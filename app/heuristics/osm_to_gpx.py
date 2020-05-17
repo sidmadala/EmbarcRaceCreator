@@ -1,4 +1,3 @@
-
 def convert(path, nodes, filename="test.gpx"):
     """
     Converts path to gpx file.
