@@ -9,12 +9,13 @@ import decimal
 4. Send to Kevin for validation
 """
 
-df = pd.read_excel(open('data/RaceRoutes.xlsx','rb'))
+df = pd.read_excel(open('data/RaceRoutes.xlsx','rb'), sheet_name="Sheet1")
+# df = pd.read_excel(open('data/RaceRoutes.xlsx','rb'), sheet_name="Sheet2")
 print(df.head())
 
 for index, runner in df.iterrows():
     
-    # if runner["Name"] != "Aireq Mettle":
+    # if runner["Name"] != "Helmer":
     #     continue
 
     name = runner["Name"]
