@@ -14,6 +14,9 @@ print(df.head())
 
 for index, runner in df.iterrows():
     
+    # if runner["Name"] != "Roger Belz":
+    #     continue
+
     name = runner["Name"]
     
     start_latitude = df['Latitude']

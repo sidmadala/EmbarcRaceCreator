@@ -22,7 +22,7 @@ def create_route(coords, dist_goal, name):
     for piv in pivots:
         test = make_loop(graph, piv, start, dist_goal)
         paths.append(test)
-        #ox.plot_graph_route(graph, test)
+        ox.plot_graph_route(graph, test)
 
     # count = 1
     # print(len(paths))
