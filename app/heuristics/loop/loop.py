@@ -11,7 +11,7 @@ def create_route(coords, dist_goal, name):
     Returns:
         paths (list): list of lists, each sublist is a path (list of osmid's)
     """
-    graph = ox.core.graph_from_point(coords, distance=dist_goal * 320)
+    graph = ox.core.graph_from_point(coords, distance=dist_goal * 700, simplify=False)
     start = ox.get_nearest_node(graph, coords)
     nodes, _ = ox.graph_to_gdfs(graph)
     pivots = get_pivots(graph, start, dist_goal)
