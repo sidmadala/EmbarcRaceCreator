@@ -12,15 +12,17 @@ import decimal
 df = pd.read_excel(open('data/RaceRoutes.xlsx','rb'))
 print(df.head())
 
-#loops = loop.create_route(lat_long, distance)
-
 for index, runner in df.iterrows():
+    
     name = runner["Name"]
+    
     start_latitude = df['Latitude']
     start_longitude = df['Longitude']
+    
     lat = float(start_latitude[index])
     long = float(start_longitude[index])
     distance = df['Distance (km)'][index]
+    
     lat_long = (lat, long)
     
     print(runner['Name'])
@@ -29,17 +31,20 @@ for index, runner in df.iterrows():
     
     try:
         loops, nodes = loop.create_route(lat_long, distance, name)
-    except:
+    except Exception as exception:
         print(f"Error creating routes for runner: {name}")
-
+        print(exception)
+        continue
     print(f"Number of routes: {len(loops)}")
 
     count = 1
     for path in loops:
         try:
             osm_to_gpx.convert(path=path, nodes=nodes, filename=f"routes/{name}-route-{count}.gpx")
-        except:
+        except Exception as exception:
             print(f"Error creating gpx for runner: {name}")
+            print(exception)
+            continue
         count += 1
 
 
