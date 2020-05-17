@@ -25,7 +25,7 @@ for index, runner in df.iterrows():
 
 """
 1. Get name, coordinates, distance 
-2. Create 
-
-
+2. Create route based on above parameters
+3. Save route in .gpx file => name-route-number.gpx
+4. Send to Kevin for validation
 """
