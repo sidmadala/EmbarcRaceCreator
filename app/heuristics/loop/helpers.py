@@ -94,7 +94,11 @@ def get_pivots(graph, start, dist):
     slopes = [(nodes.loc[point]['y'] - start_coords[0], nodes.loc[point]['x'] - start_coords[1]) for point in adjs]
 
     # if not enough pivots:
-    if len(adjs) == 2:
+    if len(adjs) == 1:
+        slopes.append((-slopes[0][0], -slopes[0][1]))
+        slopes.append((-slopes[0][1], -slopes[0][0]))
+        slopes.append((slopes[0][1], slopes[0][0]))
+    elif len(adjs) == 2:
         slopes.append(tuple(-np.sum(slopes, axis=0)))
         ang1 = np.arccos(np.dot((slopes[0] / np.linalg.norm(slopes[0])), (slopes[1] / np.linalg.norm(slopes[1]))))
         ang2 = np.arccos(np.dot((slopes[1] / np.linalg.norm(slopes[1])), (slopes[2] / np.linalg.norm(slopes[2]))))

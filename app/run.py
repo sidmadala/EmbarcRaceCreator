@@ -1,5 +1,5 @@
-from heuristics.loop import loop
-from heuristics.out_and_back import out_and_back
+from heuristics import loop
+from heuristics import out_and_back
 import pandas as pd
 
 
@@ -21,6 +21,7 @@ for index, runner in df.iterrows():
     print(distance)
     
     loops = loop.create_route(lat_long, distance, name)
+    print(len(loops))
     break    
 
 """
@@ -29,3 +30,4 @@ for index, runner in df.iterrows():
 3. Save route in .gpx file => name-route-number.gpx
 4. Send to Kevin for validation
 """
+
