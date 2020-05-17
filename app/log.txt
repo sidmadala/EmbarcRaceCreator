@@ -21,8 +21,7 @@ Number of routes: 4
 Roger Belz
 (40.82405, -73.0715)
 5
-Error creating routes for runner: Roger Belz
-No path to 213745516.
+Number of routes: 4
 Darlene Kenny
 (40.96238, -73.11282)
 5
@@ -63,7 +62,7 @@ Travis Bell
 (40.95807, -73.01179)
 5
 Number of routes: 4
- Christine Camardella
+Christine Camardella
 (40.73966, -73.50534)
 10
 Number of routes: 4
@@ -111,8 +110,8 @@ James Hayward
 (35.996201, -78.910782)
 10
 Number of routes: 4
- Sue Lawlor
+Sue Lawlor
 (40.78418, -74.50322)
 10
-Error creating routes for runner:  Sue Lawlor
+Error creating routes for runner: Sue Lawlor
 No path to 6680338312.

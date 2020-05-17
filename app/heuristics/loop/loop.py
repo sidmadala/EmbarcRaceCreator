@@ -24,11 +24,4 @@ def create_route(coords, dist_goal, name):
         paths.append(test)
         ox.plot_graph_route(graph, test)
 
-    # count = 1
-    # print(len(paths))
-    # for path in paths:
-    #     print(count)
-    #     osmid_to_gpx(path, nodes=nodes, filename=f"{name}-route-{count}.gpx")
-    #     count += 1
-
     return paths, nodes

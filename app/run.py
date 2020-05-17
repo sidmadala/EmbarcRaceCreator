@@ -14,8 +14,8 @@ print(df.head())
 
 for index, runner in df.iterrows():
     
-    # if runner["Name"] != "Roger Belz":
-    #     continue
+    if runner["Name"] != "Aireq Mettle":
+        continue
 
     name = runner["Name"]
     
