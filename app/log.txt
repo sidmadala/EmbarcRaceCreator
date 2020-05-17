@@ -100,8 +100,7 @@ cannot do label indexing on <class 'pandas.core.indexes.numeric.Int64Index'> wit
 Aireq Mettle
 (34.23287, -118.46265)
 5
-Error creating routes for runner: Aireq Mettle
-No path to 7304926343.
+Number of routes: 4
 Emma Wheeler
 (35.996201, -78.910782)
 10
