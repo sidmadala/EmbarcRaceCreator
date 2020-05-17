@@ -138,6 +138,9 @@ def make_loop(graph, center_pivot, start, dist):
     """
     pivots = get_pivots(graph, center_pivot, dist)
 
+    # handle duplicate pivots - implement better fix later
+    pivots = list(set(pivots))
+
     temp = nx.multi_source_dijkstra(graph, pivots, start, weight="length")[-1]
     visited = {temp[0]}
     while len(pivots) != len(visited):
