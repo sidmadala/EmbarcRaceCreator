@@ -89,7 +89,7 @@ def get_pivots(graph, start, dist):
 
     norm = Conversion(start_coords[0])
 
-    adjs = list(graph.successors(start))
+    adjs = [p for p in graph.successors(start) if p != start]
 
     slopes = [(nodes.loc[point]['y'] - start_coords[0], nodes.loc[point]['x'] - start_coords[1]) for point in adjs]
 
