@@ -22,13 +22,6 @@ def create_route(coords, dist_goal, name):
     for piv in pivots:
         test = make_loop(graph, piv, start, dist_goal)
         paths.append(test)
-        #ox.plot_graph_route(graph, test)
-
-    # count = 1
-    # print(len(paths))
-    # for path in paths:
-    #     print(count)
-    #     osmid_to_gpx(path, nodes=nodes, filename=f"{name}-route-{count}.gpx")
-    #     count += 1
+        ox.plot_graph_route(graph, test)
 
     return paths, nodes
