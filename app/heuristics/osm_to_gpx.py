@@ -1,5 +1,5 @@
 
-def osmid_to_gpx(path, nodes, filename="test.gpx"):
+def convert(path, nodes, filename="test.gpx"):
     """
     Converts path to gpx file.
 

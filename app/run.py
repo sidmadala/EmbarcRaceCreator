@@ -1,4 +1,4 @@
-from heuristics import loop, out_and_back
+from heuristics import loop, out_and_back, osm_to_gpx
 import pandas as pd
 import decimal
 
@@ -27,8 +27,14 @@ for index, runner in df.iterrows():
     print(distance)
     
     loops, nodes = loop.create_route(lat_long, distance, name)
-    osmid_to_gpx(paths=loops, nodes=nodes, filename="test.gpx")
-    print(len(loops))
+
+    print(f"Number of routes: {len(loops)}")
+
+    count = 1
+    for loop in loops:
+        osm_to_gpx.convert(path=loops[0], nodes=nodes, filename=f"{name}-route-{count}")
+        count += 1
+    
     break
 
 
