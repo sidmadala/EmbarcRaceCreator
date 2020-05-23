@@ -1,0 +1,137 @@
+              Name   Age Gender  ...     Consolidated Shipping? Delivery Shipment #
+0   Jeffrey Cergol  21.0      M  ...          NY - Suffolk - MP  Jeffrey        1.0
+1  Kathleen Cergol  53.0      F  ...          NY - Suffolk - MP  Jeffrey        1.0
+2      Kiera Lopez  22.0      F  ...          NY - Suffolk - MP  Jeffrey        1.0
+3       Roger Belz  53.0      M  ...  NY - Suffolk - Ronkonkoma  Jeffrey        1.0
+4    Darlene Kenny  54.0      F  ...    NY - Suffolk - Setauket  Jeffrey        1.0
+
+[5 rows x 17 columns]
+Jeffrey Cergol
+(40.95199, -72.99736)
+5.0
+Number of routes: 4
+Kathleen Cergol
+(40.95199, -72.99736)
+10.0
+Number of routes: 4
+Kiera Lopez
+(40.95199, -72.99736)
+5.0
+Number of routes: 4
+Roger Belz
+(40.82405, -73.0715)
+5.0
+Number of routes 4
+Darlene Kenny
+(40.96238, -73.11282)
+5.0
+Number of routes: 4
+Patrick Kenny
+(40.96238, -73.11282)
+5.0
+Number of routes: 4
+Pearl Jean Kenny
+(40.96238, -73.11282)
+5.0
+Number of routes: 4
+Keira Ann Kenny
+(40.96238, -73.11282)
+5.0
+Number of routes: 4
+Nicholas Testa
+(35.32853, -79.0594)
+5.0
+Number of routes: 4
+Rina Plotkin
+(35.996201, -78.910782)
+5.0
+Number of routes: 4
+Abigail O'Connor
+(40.94257, -72.97153)
+5.0
+Number of routes: 4
+Patrick O'Connor
+(40.94257, -72.97153)
+5.0
+Number of routes: 4
+Anthony Lippman
+(40.93575, -72.97937)
+5.0
+Number of routes: 4
+Travis Bell
+(40.95807, -73.01179)
+5.0
+Number of routes: 4
+Christine Camardella
+(40.73966, -73.50534)
+10.0
+Number of routes: 4
+Nick Buchta
+(35.996201, -78.910782)
+10.0
+Number of routes: 4
+Elizabeth Dixon
+(35.32853, -79.0594)
+5.0
+Number of routes: 4
+Martha Kellas
+(45.43527, -122.7949)
+5.0
+Number of routes: 4
+Sally
+(40.70479, -73.83441)
+10.0
+Number of routes: 4
+Leticia Calcada
+(35.8483, -86.45946)
+10.0
+Number of routes: 4
+Carol Kelley
+(33.95946, -84.4202)
+10.0
+Number of routes: 4
+Aireq Mettle
+(34.23287, -118.46265)
+5.0
+Number of routes: 4
+Emma Wheeler
+(35.996201, -78.910782)
+10.0
+Number of routes: 4
+James Hayward
+(35.996201, -78.910782)
+10.0
+Number of routes: 4
+Sue Lawlor
+(40.78418, -74.50322)
+10.0
+Error creating routes for runner: Sue Lawlor
+No path to 6680338312.
+O'Connor
+(40.94704, -72.97301)
+10.0
+Number of routes: 4
+Hayes
+(40.83808, -73.00972)
+5.0
+Number of routes: 4
+Helmer
+(36.00865, -79.86963)
+10.0
+Number of routes: 4
+JC
+(40.95124, -72.96262)
+5.0
+Number of routes: 4
+Thomas Fisher
+(40.79363, -72.9627)
+21.08
+Number of routes: 4
+Sheila Rossi
+(32.87499, -79.75537)
+10.0
+Number of routes: 4
+Chris Sanzone
+(43.16743, -77.48678)
+5.0
+Number of routes: 4

@@ -70,7 +70,7 @@ def osmid_to_gpx(path, nodes, filename="test.gpx"):
         output.write(end)
 
 
-def get_pivots(graph, start, dist):
+def get_pivots(graph, nodes, start, dist):
     """
     Gets 4 points to use as pivots for the loop algorithm
 
@@ -84,11 +84,11 @@ def get_pivots(graph, start, dist):
     Returns:
         pivots (list): list of 4 pivot nodes, unordered
     """
-    nodes, edges = ox.graph_to_gdfs(graph)
     start_coords = (nodes.loc[start]['y'], nodes.loc[start]['x']) # (lat,long)
 
     norm = Conversion(start_coords[0])
 
+    # adjs = list(graph.successors(start))
     adjs = [p for p in graph.successors(start) if p != start]
 
     slopes = [(nodes.loc[point]['y'] - start_coords[0], nodes.loc[point]['x'] - start_coords[1]) for point in adjs]
@@ -120,7 +120,35 @@ def get_pivots(graph, start, dist):
     return pivots
 
 
-def make_loop(graph, center_pivot, start, dist):
+def alt_pivots(graph, nodes, start, dist, n=4):
+    """
+    Gets 4 points to use as pivots for the loop algorithm
+
+    Parameters:
+        graph (osmnx graph): graph structure determined by start location
+
+        start (int): osmid of nearest node to start coordinates
+
+        dist (int): distance goal in km
+
+    Returns:
+        pivots (list): list of 4 pivot nodes, unordered
+    """
+    start_coords = (nodes.loc[start]['y'], nodes.loc[start]['x']) # (lat,long)
+    
+    norm = Conversion(start_coords[0])
+    
+    deltas = [(np.cos(2*t*np.pi/n), np.sin(2*t*np.pi/n)) for t in range(n)]
+
+    pivot_coords = [(dy * dist / (2 * np.pi + 1) / norm(dy, dx) + start_coords[0],
+                     dx * dist / (2 * np.pi + 1) / norm(dy, dx) + start_coords[1]) for dy, dx in deltas]
+
+    pivots = [ox.get_nearest_node(graph, pc) for pc in pivot_coords]
+
+    return pivots
+
+
+def make_loop(graph, nodes, center_pivot, start, dist):
     """
     Makes loop trail corresponding to center-pivot w.r.t start
 
@@ -136,7 +164,34 @@ def make_loop(graph, center_pivot, start, dist):
     Returns:
         temp (list): list of osmid corresponding to path nodes
     """
-    pivots = get_pivots(graph, center_pivot, dist)
+    pivots = list(set(get_pivots(graph, nodes, center_pivot, dist)))
+
+    temp = nx.multi_source_dijkstra(graph, pivots, start, weight="length")[-1]
+    visited = {temp[0]}
+    while len(pivots) != len(visited):
+        temp[0:0] = nx.multi_source_dijkstra(graph, set(pivots) - visited, temp[0], weight="length")[-1][:-1]
+        visited.add(temp[0])
+
+    temp[0:0] = nx.shortest_path(graph, start, temp[0], weight="length")[:-1]
+    return temp
+
+def alt_loop(graph, nodes, center_pivot, start, dist, n=4):
+    """
+    Makes loop trail corresponding to center-pivot w.r.t start
+
+    Parameters:
+        graph (osmnx graph): graph structure determined by start location
+
+        center_pivot (int): osmid of center-pivot node
+
+        start (int): osmid of nearest node to start coordinates
+
+        dist (int): distance goal in km
+
+    Returns:
+        temp (list): list of osmid corresponding to path nodes
+    """
+    pivots = alt_pivots(graph, nodes, center_pivot, dist, n)
 
     # handle duplicate pivots - implement better fix later
     pivots = list(set(pivots))
@@ -149,3 +204,4 @@ def make_loop(graph, center_pivot, start, dist):
 
     temp[0:0] = nx.shortest_path(graph, start, temp[0], weight="length")[:-1]
     return temp
+

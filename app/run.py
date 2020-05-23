@@ -9,7 +9,7 @@ import decimal
 4. Send to Kevin for validation
 """
 
-df = pd.read_excel(open('data/RaceRoutes.xlsx','rb'), sheet_name="Sheet1")
+df = pd.read_excel(open('data/RaceRoutes.xlsx','rb'), sheet_name="Sheet4")
 # df = pd.read_excel(open('data/RaceRoutes.xlsx','rb'), sheet_name="Sheet2")
 print(df.head())
 
@@ -24,17 +24,17 @@ for index, runner in df.iterrows():
     start_longitude = df['Longitude']
     
     lat = float(start_latitude[index])
-    long = float(start_longitude[index])
+    lon = float(start_longitude[index])
     distance = df['Distance (km)'][index]
     
-    lat_long = (lat, long)
+    lat_long = (lat, lon)
     
     print(runner['Name'])
     print(lat_long)
     print(distance)
     
     try:
-        loops, nodes = loop.create_route(lat_long, distance, name)
+        loops, nodes = loop.create_route(lat_long, distance)
     except Exception as exception:
         print(f"Error creating routes for runner: {name}")
         print(exception)

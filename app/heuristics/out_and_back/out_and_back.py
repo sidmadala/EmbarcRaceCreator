@@ -25,7 +25,7 @@ def create_route(coords, dist_goal, tolerance=10):
                                                           weight='length')
 
     candidates = [v for v, l in nodes_lengths.items()
-                  if (l < (dist_goal * 500 + tolerance) and l > (dist_goal * 500 - tolerance))]
+                  if ((dist_goal * 500 + tolerance) > l > (dist_goal * 500 - tolerance))]
 
     paths = []
     for node in candidates:
